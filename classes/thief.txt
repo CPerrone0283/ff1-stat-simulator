@@ -1,0 +1,49 @@
++SA  L
++S IVL
++SA  L
++S I L
+SA VL
++S I L
+SA  L
++S  VL
+SAI L
++    L
+SA VL
++S I L
+A  L
++S  VL
+SAI L
+A  L
++S  VL
+SAI L
+A  L
++S  VL 
+SAI L
+A  L
++S  VL
+SAI L
+A  L
++S  VL
+SAI L
+A  L
++   VL
+SAI L
+A  L
++SA VL
+SAI L
+A  L
+SA VL
++SAI L
+A  L
+SA VL
+SAI L
++ A  L
+S  VL
+AI L
+S   L
+A VL
++S I L
+A  L
+S  VL
+AI L
+S   L

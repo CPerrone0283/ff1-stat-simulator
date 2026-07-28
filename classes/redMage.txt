@@ -1,0 +1,49 @@
++S  VL
+AIV
++S  VL
+AIV
++S  VL
+AI
++S  VL
++ AI
++S   L
+IV
++SA  L
+IVL
++S
+AIVL
++S   L
++  IV
+SA
+IVL
+S   L
+AIV
+S
+IVL
+SA  L
+I
+S  V
++ AI L
+S   L
+IV
+SA
+I L
+S  VL
+AI
+S
+IVL
+SA  L
++  I
+S  V
+AI L
+S   L
+IV
+SA
+I L
+S  VL
+AI
+S
++  IVL
+SA  L
+I
+S  V

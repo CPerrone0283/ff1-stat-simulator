@@ -1,0 +1,50 @@
+LV     Fighter    Thief     B. Belt     R. Mage     W. Mage     B. Mage
+L02    +SA V      +SA  L    + A VL      +S  VL      +SAI L      +  I
+L03    +SA VL     +S IVL     S IVL        AIV        SAIV         AIV
+L04    +SAI L     +SA  L    + A V       +S  VL      +S I L      +S I L
+L05    +SA V      +S I L     S IVL        AIV         AIV          IV
+L06    +SA VL      SA VL      A VL      +S  VL      +  I L      + AI L
+L07    +SAI L     +S I L    +S IV         AI         S IV        S IV
+L08    +SA V       SA  L      A VL      +S  VL      + AI L      +  I L
+L09    +SA VL     +S  VL     S IVL      + AI           IV         AIV
+L10    +SAI L      SAI L    + A V       +S   L      +S I L       S I L
+L11    +SA V      +    L     S IVL         IV         AIV       +  I
+L12     SA VL      SA VL      A VL      +SA  L      +  I L        AIV
+L13    +SAI L     +S I L    +S IV          IVL       S IV        S I
+L14    +SA V        A  L      A VL      +S          + AI L      +  I L
+L15     SA VL     +S  VL     S IVL        AIVL         IV         AI
+L16    +SAI L      SAI L    + A V       +S   L       S I L       S IV
+L17    +SA V        A  L    +S IVL      +  IV       + AIV          I
+L18     SA VL     +S  VL      A VL       SA            I L      + AI L
+L19    +SAI L      SAI L    +S IV          IVL       S IV        S I
+L20    +SA V        A  L      A VL       S   L      + AI L         IV
+L21     S  VL     +S  VL     S IVL        AIV          IV         AI
+L22    +SAI L      SAI L    + A V        S           S I        +S I L
+L23    +SA V        A  L     S IVL         IVL        AI L         I
+L24     S  VL     +S  VL      A VL       SA  L      +  IV         AIV
+L25     SAI L      SAI L    +S IV          I         S I         S I
+L26    +SA V        A  L      A VL       S  V         AI L      +  I L
+L27     S  VL     +S  VL     S IVL      + AI L         IV         AI
+L28     SAI L      SAI L    + A V        S   L      +S I         S IV
+L29    +SA V        A  L     S IVL         IV         AI L         I
+L30     S  VL     +   VL      A VL       SA            IV       + AI L
+L31     SAI L      SAI L    +S IV          I L       S           S I
+L32    +S  V        A  L    + A VL       S  VL      + A  L         IV
+L33     SA  L     +SA VL     S IVL        AI            V         AI
+L34     S IV       SAI L    + A V        S           S           S I L
+L35    +SA  L       A  L     S IVL         IVL        A  L      +  I
+L36     S  V       SA VL      A VL       SA  L          V         AIV
+L37     SAI L     +SAI L    +S IV       +  I        +S           S I
+L38    +S  V        A  L      A VL       S  V         A  L         I L
+L39     SA  L      SA VL     S IVL        AI L          V         AI
+L40     S IV       SAI L    + A V        S   L       S           S IV
+L41    +SA        + A  L     S IVL         IV         A  L      +  I
+L42     S          S  VL      A VL       SA         +   V          I L
+L43     SAI         AI L    +S IV          I L       S             I
+L44    +S          S   L      A V        S  VL        A  L         IV
+L45     SA          A VL     S IVL        AI            V          I
+L46     S         +S I L    + A V        S           S             I L
+L47    +SA          A  L    +S IV       +  IVL      + A  L         I
+L48     S          S  VL      A VL       SA  L          V          IV
+L49     SA          AI L    +S IV          I         S             I
+L50    +S          S   L      A V        S  V         A  L         I L

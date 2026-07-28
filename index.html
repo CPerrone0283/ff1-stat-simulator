@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><title>FF1 Sim</title>
+  <script type="module" src="app.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+
+</head>
+<body>
+  <h1>FF1 Simulator</h1>
+
+  <label for="maxLevel">Enter Level: </label>
+  <input type="number" min="2" step="1" max="50" id="maxLevel" value="50">
+
+  <label for="totalRuns">Number of Runs: </label>
+  <input type="number" min="1" step="1" id="totalRuns" value="10">
+
+
+  <div id="selectClassToSimulate">
+
+
+    
+  </div>
+
+
+  <button id="doSimulation">Simulate!</button>
+  <div aria-live="polite" id="output">
+
+  </div>
+
+  <div  id="error" role="alert">
+
+
+  </div>
+
+</body>
+</html>

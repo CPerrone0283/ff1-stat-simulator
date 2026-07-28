@@ -1,0 +1,10 @@
+# Derived from claude/ff1-lessons-learned.md — regenerate it, don't version it
+claude/*.pdf
+
+# OS / editor droppings
+Thumbs.db
+Desktop.ini
+
+# If dependencies ever show up
+node_modules/
+

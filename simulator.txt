@@ -1,0 +1,19 @@
+Simulate(classData, targetlevel) 
+
+The goal is to determine the final stats for an FF1, given the class. 
+Function: Simulate
+
+Step 1: Start with the base class's base stats. Current level should be set to 1. 
+Step 2: Loop from 1 to TargetLevel.
+Step 3: The loop will hit the following stats: STR, AGI, INT, VIT, LUCK
+Step 4a: For these five stats: If there is a +1, add it to the base stats. 
+Step 4b: If there is a 0 for the stat, then an additional check is performed: If (Rand MOD 4 == 0), then + 1 will be
+given to the stat. If not, nothing is added. 
+Step 5: Strong HP is determined. If There's no strongHP level up, then HP gain is Floor(VIT/4). If there's a strongHP
+gain, then the total HP added would be Rand(20~25) + Floor(VIT/4)
+Step 6: Additional stats like Accuracy can be added and predetermined.
+Step 7: Magic defense might get weird, as some classes get more upon class change. Perhaps a flag can be added to the classData.
+This only affects Black Belt and Master, where Black Belts get +4 magic defense, and Masters only get +1 (This was a bug in the
+original game).
+
+function should return the final stats. Not sure what this data would look like however. 
