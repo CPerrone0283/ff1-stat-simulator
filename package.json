@@ -1,0 +1,11 @@
+{
+  "name": "ff1-stat-simulator",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node main.js",
+    "test": "node --test",
+    "start": "npx serve -l 8080"
+  }
+}

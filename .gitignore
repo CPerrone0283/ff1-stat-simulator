@@ -8,3 +8,5 @@ Desktop.ini
 # If dependencies ever show up
 node_modules/
 
+#.vscode
+.vscode/
