@@ -1,10 +1,12 @@
+export const MIN_LEVEL = 2;
+export const MAX_LEVEL = 50;
+
+export const MIN_RUNCOUNT = 1;
+export const MAX_RUNCOUNT = 100000;
+
+
 export function processInputs(rawRunCount, rawMaxLevel) {
 
-    const MIN_LEVEL = 2;
-    const MAX_LEVEL = 50;
-
-    const MIN_RUNCOUNT = 1;
-    const MAX_RUNCOUNT = 100000;
 
 
     if(!Number.isFinite(rawMaxLevel) || rawMaxLevel > MAX_LEVEL || rawMaxLevel < MIN_LEVEL)

@@ -9,8 +9,7 @@ An application that attempts to determine what stats would be for each class giv
 
 # HOW TO USE THE SIMULATOR
 
-- Select Runs: Select up to 100,000 runs. Minimum amount of runs is 1. 
-- Select Level: Select the level you want to simulate. Minimum level is 2. Maximum level is 50. 
+- Select Runs and Level. The form enforces limits and tells you what they are. 
 - Select Class: Select the class you want to see the stats of. 
 - Click Simulate. This will run the simulate and compute the following stats: STR, AGI, VIT, INT, LCK, HP
 
