@@ -50,8 +50,6 @@ function performSimulation() {
 
     error.replaceChildren();
 
-    console.log(inputTotalRuns.value);
-
     const fields = { level: inputMaxLevel, runs: inputTotalRuns };
 
 

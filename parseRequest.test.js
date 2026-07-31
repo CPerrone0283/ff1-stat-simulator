@@ -11,14 +11,28 @@ describe('Test Run Counts', () => {
     it('Maximum runs is 100000', () => {
         assert.equal(MAX_RUNCOUNT, 100000);
     });
+    it('Minimum runs is 1', () => {
+        assert.equal(MIN_RUNCOUNT, 1);
+    });
     it('Accepts the Maximum Run Count', () => {
-        assert.equal(processInputs(MAX_RUNCOUNT, 50).ok, true);
+        const result = processInputs(MAX_RUNCOUNT, 50);
+        assert.equal(result.ok, true);
+        assert.equal(result.values.runCount, MAX_RUNCOUNT);
+    });
+    it('Accepts the Minimum Run Count', () => {
+        const result = processInputs(MIN_RUNCOUNT, 50);
+        assert.equal(result.ok, true);
+        assert.equal(result.values.runCount, MIN_RUNCOUNT);
     });
     it('Rejects one run above the maximum', () => {
-        assert.equal(processInputs(MAX_RUNCOUNT + 1, 50).ok, false);
+        const result = processInputs(MAX_RUNCOUNT + 1, 50);
+        assert.equal(result.ok, false);
+        assert.equal(result.field, 'runs');
     });
     it('Rejects one run below the minimum', () => {
-        assert.equal(processInputs(MIN_RUNCOUNT - 1, 50).ok, false);
+        const result = processInputs(MIN_RUNCOUNT - 1, 50);
+        assert.equal(result.ok, false);
+        assert.equal(result.field, 'runs');
     });
 
 });
@@ -27,36 +41,32 @@ describe('Test Level Caps', () => {
     it('Maximum level is 50', () => {
         assert.equal(MAX_LEVEL, 50);
     });
-    it('accepts the maximum level', () => {
-        assert.equal(processInputs(10, MAX_LEVEL).ok, true);
+    it('Minimum level is 2', () => {
+        assert.equal(MIN_LEVEL, 2);
+    });
+    it('Accepts the Maximum level', () => {
+        const result = processInputs(10, MAX_LEVEL);
+        assert.equal(result.ok, true);
+        assert.equal(result.values.maxLevel, MAX_LEVEL);
+    });
+    it('Accepts the Minimum level', () => {
+        const result = processInputs(10, MIN_LEVEL);
+        assert.equal(result.ok, true);
+        assert.equal(result.values.maxLevel, MIN_LEVEL);
     });
     it('Rejects one level above the maximum', () => {
-        assert.equal(processInputs(10, MAX_LEVEL + 1).ok, false);
+        const result = processInputs(10, MAX_LEVEL + 1);
+        assert.equal(result.ok, false);
+        assert.equal(result.field, 'level');
     });
     it('Rejects one level below the minimum', () => {
-        assert.equal(processInputs(10, MIN_LEVEL - 1).ok, false);
+        const result = processInputs(10, MIN_LEVEL - 1);
+        assert.equal(result.ok, false);
+        assert.equal(result.field, 'level');
     });
 
 });
 
-
-
-
-
-// test('Valid Max Level', () => {
-
-//     const results = processInputs(10, 50);
-//     assert.equal(results.ok, true);
-//     assert.equal(results.values.maxLevel, 50);
-
-// });
-
-// test('Level Above 50', () => {
-
-//     const overLevelFifty = processInputs(10, 51);
-//     assert.equal(overLevelFifty.ok, false);
-//     assert.equal(overLevelFifty.field, 'level');
-// });
 
 test('Level Not a Number', () => {
     const resultLevelNumber = processInputs(10, Number("cat"));
@@ -71,7 +81,6 @@ test('Runs Not a Number', () => {
     assert.equal(resultRunsNumber.ok, false);
     assert.equal(resultRunsNumber.field, 'runs');
 });
-
 
 
 test('Run Valid Decimal Numbers', () => { 
@@ -94,27 +103,6 @@ test('Decimal less than 1 run rejected', () => {
     assert.equal(lessThanOneRun.field, 'runs');
 });
 
-
-
-
-
-// test('Valid Max Run Count 100000', () => {
-
-//     const results = processInputs(100000, 50);
-//     assert.equal(results.ok, true);
-//     assert.equal(results.values.runCount, 100000);
-
-
-// });
-
-// test('Runs Must Not Exceed 100000', () => {
-
-//     const results = processInputs(100001, 50);
-//     assert.equal(results.ok, false);
-//     assert.equal(results.field, 'runs');
-
-// });
-
 test('Valid Minimal Test', () => {
 
     const result = processInputs(1, 2);
@@ -124,7 +112,14 @@ test('Valid Minimal Test', () => {
 
 });
 
+test('zero for both', () => {
 
+    const result = processInputs(0,0);
+    assert.equal(result.ok, false);
+    //level should be the first to fail
+    assert.equal(result.field, 'level');
+
+});
 
 
 
