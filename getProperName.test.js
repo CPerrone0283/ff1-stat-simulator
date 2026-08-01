@@ -1,8 +1,7 @@
-import test from 'node:test';
+import test, { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
 import { jobs } from './data/classData.js'
 import { getProperName } from './formatting/getProperName.js'
-import { describe, it } from 'node:test';
 
 
 test('fighter returns Fighter', () => {
@@ -21,14 +20,16 @@ test('bigBlackBelt returns Big Black Belt if the /g flag is on', () => {
     assert.equal(bigBlackBelt, "Big Black Belt");
 });
 
-test('All lower case should not work', () => {
+test('whitemage returns Whitemage', () => {
     const whiteMage = getProperName("whitemage");
-    assert.notEqual(whiteMage, "white mage");
-    assert.notEqual(whiteMage, "White Mage");
+    assert.equal(whiteMage, "Whitemage");
 });
 
 
 describe('Each job in jobs should also work here', () => {
+    it('there is at least one job to check', () => {
+        assert.ok(Object.keys(jobs).length > 0);
+    });
     for (const job of Object.keys(jobs)) {
         it(`${job} formats cleanly`, () => {
             const jobName = getProperName(job);

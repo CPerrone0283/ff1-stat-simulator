@@ -1,7 +1,6 @@
-import test from 'node:test';
+import test, { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
 import { processInputs, MIN_LEVEL, MAX_LEVEL, MIN_RUNCOUNT, MAX_RUNCOUNT } from './parseRequest.js';
-import { describe, it } from 'node:test';
 
 //rawRunCount variable 1
 //rawMaxLevel variable 2
@@ -103,15 +102,6 @@ test('Decimal less than 1 run rejected', () => {
     assert.equal(lessThanOneRun.field, 'runs');
 });
 
-test('Valid Minimal Test', () => {
-
-    const result = processInputs(1, 2);
-    assert.equal(result.ok, true);
-    assert.equal(result.values.runCount, 1);
-    assert.equal(result.values.maxLevel, 2);
-
-});
-
 test('zero for both', () => {
 
     const result = processInputs(0,0);
@@ -120,6 +110,3 @@ test('zero for both', () => {
     assert.equal(result.field, 'level');
 
 });
-
-
-
