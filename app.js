@@ -5,8 +5,6 @@ import { processInputs } from './parseRequest.js';
 import { getProperName } from './formatting/getProperName.js'
 
 
-
-
 const doSimulation = document.getElementById("doSimulation");
 doSimulation.addEventListener('click', performSimulation);
 
@@ -17,8 +15,6 @@ const formats = {
   highest: (v) => v, 
   lowest: (v) => v,
   standardDeviation: (v) => v.toFixed(2)};
-
-
 
 Object.keys(jobs).forEach((job, index) => {
   const radio = document.createElement('input');
@@ -66,6 +62,8 @@ function performSimulation() {
      {
        runs.push(simulate(jobs[selected], result.values.maxLevel));
      }
+
+
 
     const sheet = new StatSheet(runs);
 

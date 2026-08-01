@@ -5,7 +5,7 @@ export class StatSheet {
 
         const totals = this.zeroStats(this.statNames);
         const average = this.zeroStats(this.statNames);
-        const highest = this.zeroStats(this.statNames);
+        const highest = {...runs[0]};
         const lowest = {...runs[0]};
         const standardDeviation = this.zeroStats(this.statNames);
 
