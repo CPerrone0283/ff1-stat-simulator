@@ -1,5 +1,8 @@
-# Derived from claude/ff1-lessons-learned.md — regenerate it, don't version it
-claude/*.pdf
+# Session notes and cheat sheets — kept locally, mirrored in the claude.ai project
+claude/
+
+# Scratch
+_to_delete/
 
 # OS / editor droppings
 Thumbs.db
@@ -8,5 +11,4 @@ Desktop.ini
 # If dependencies ever show up
 node_modules/
 
-#.vscode
 .vscode/

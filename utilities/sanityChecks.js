@@ -1,5 +1,7 @@
 export function SanityCheck(job) {
 
+  console.log(job);
+
     Object.keys(job).forEach((attribute) => {
 
       if(attribute === 'growth')
