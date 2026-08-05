@@ -1,7 +1,7 @@
 import test, { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
-import { jobs } from './data/classData.js'
-import { getProperName } from './formatting/getProperName.js'
+import { jobs } from '../data/classData.js'
+import { getProperName } from './getProperName.js'
 
 
 test('fighter returns Fighter', () => {

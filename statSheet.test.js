@@ -14,15 +14,17 @@ describe('eight runs: 2, 4, 4, 4, 5, 5, 7, 9', ()=> {
 
 });
 
-test('Highest Lowest Average should be the same', () => {
+
+describe('A single run: 5 across every stat', () => {
     const runs = [5].map(v => ({ str: v, agi: v, vit: v, int: v, luck: v }));
     const sheet = new StatSheet(runs);
-
-    assert.deepEqual(sheet.average, { str: 5, agi: 5, vit: 5, int: 5, luck: 5});
-    assert.deepEqual(sheet.lowest, { str: 5, agi: 5, vit: 5, int: 5, luck: 5});
-    assert.deepEqual(sheet.highest, { str: 5, agi: 5, vit: 5, int: 5, luck: 5});
-    assert.equal(sheet.standardDeviation.str, 0);
+    it('Average stats are 5', () => { assert.deepEqual(sheet.average, { str: 5, agi: 5, vit: 5, int: 5, luck: 5}); });
+    it('Lowest stats are 5', () => {  assert.deepEqual(sheet.lowest, { str: 5, agi: 5, vit: 5, int: 5, luck: 5}); });
+    it('Highest stats are 5', () => {  assert.deepEqual(sheet.highest, { str: 5, agi: 5, vit: 5, int: 5, luck: 5}); });
+    it('Standard Deviation Should be 0', () => { assert.equal(sheet.standardDeviation.str, 0); });
 });
+
+
 
 test('Test Negative Values', () => {
     const runs = [-5, -3, -9].map(v => ({ str: v }));

@@ -6,6 +6,8 @@
   "scripts": {
     "build": "node main.js",
     "test": "node --test",
+    "test:names": "node --test --test-reporter=tap",
     "start": "npx serve -l 8080"
+
   }
 }

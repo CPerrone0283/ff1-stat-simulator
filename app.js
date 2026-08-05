@@ -3,7 +3,6 @@ import { StatSheet } from './statSheet.js'
 import { simulate } from './simulator.js'
 import { processInputs } from './parseRequest.js';
 import { getProperName } from './formatting/getProperName.js'
-import { SanityCheck } from './utilities/sanityChecks.js';
 
 
 const doSimulation = document.getElementById("doSimulation");
