@@ -26,9 +26,8 @@ An application that attempts to determine what stats would be for each class giv
 - Each job has its own preset stats. This is found in txt files found in the classes folder. The actual data used comes from '/data/classData.js'
 - classData.js was created via node. To rerun, type in `npm run build` in a terminal.  
 - app.js is the browser entry point. 
-- sanityChecks.js is a file that can be used to check the guaraneteed level ups as well as the standard deviation. 
 - parseRequest.js is what sets the boundaries for the number of runs and the max level. parseRequest.test.js is a unit test that tests this validation. 
-- To run parseRequest.test.js, on a terminal, run `npm test`
+- To run the unit tests for this simulator, on a terminal, run `npm test`. These unit tests currently sit next to their respective js files. 
 
 # FUTURE VERSIONS 
 
