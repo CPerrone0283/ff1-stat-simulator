@@ -12,24 +12,25 @@
     <div class="header">  
         <h1>FF1 Simulator</h1>
     </div> 
+
+
+
+
+
     <div class="controls">
+      <div class="panel level-and-runs-inputs">
+          <label for="maxLevel">Enter Level: </label>
+          <input type="number" min="2" step="1" max="50" id="maxLevel" value="50">
+          <label for="totalRuns">Number of Runs: </label>
+          <input type="number" min="1" step="1" max="100000" id="totalRuns" value="10">
+      </div>
       <fieldset class="panel">
-        <legend>Select Max Level</legend>
-        <label for="maxLevel">Enter Level: </label>
-        <input type="number" min="2" step="1" max="50" id="maxLevel" value="50">
-      </fieldset>
-      <fieldset class="panel">
-        <legend>Select Runs</legend>
-        <label for="totalRuns">Number of Runs: </label>
-        <input type="number" min="1" step="1" max="100000" id="totalRuns" value="10">
-      </fieldset>
-      <fieldset class="panel">
-        <legend>Select Class to Simulate</legend>
-        <div id="selectClassToSimulate">
+        <legend>Class to Simulate</legend>
+        <div id="selectClassToSimulate" class="job-picker">
 
         </div>
-        <button id="doSimulation">Simulate!</button>
       </fieldset>
+      <button id="doSimulation">Simulate!</button>
     </div> 
     <div class="results">
       <div aria-live="polite" id="status">

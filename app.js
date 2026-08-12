@@ -45,6 +45,7 @@ function performSimulation() {
     const error = document.querySelector('#error');
 
     error.replaceChildren();
+    
 
     const fields = { level: inputMaxLevel, runs: inputTotalRuns };
 
@@ -69,16 +70,57 @@ function performSimulation() {
 
     assertFormattersComplete(sheet.typeNames, formats)
 
+    const cards = sheet.typeNames.map(statistic => makeStatCard(sheet.statNames, sheet[statistic], statistic, getProperName(statistic), formats[statistic]));
+
+    const resultCard = makeResultCard( {  job: selected, level: result.values.maxLevel, runCount: result.values.runCount, version: "NES",  cards: cards })
+
     output.replaceChildren();
-    sheet.typeNames.forEach(statistic => {
+    output.append(resultCard);
 
-      const card = makeStatCard(sheet.statNames, sheet[statistic], statistic, getProperName(statistic), formats[statistic]);
-      output.appendChild(card);
-    })
-
-
+    const status = document.querySelector('#status');
+    status.textContent = getProperName(selected) + " results ready: " + result.values.runCount.toLocaleString() + " runs done, at Level " +  result.values.maxLevel;
+}
 
 
+function makeResultCard(options) {
+  const masterResultCard = document.createElement('article'); 
+  masterResultCard.classList.add('result-card');
+
+  const resultHeader = document.createElement('header')
+  const resultCardTitle = document.createElement('h2'); 
+  resultCardTitle.textContent = getProperName(options.job) + " Results";
+  resultHeader.append(resultCardTitle);
+
+
+  const facts = {
+    Version: options.version,
+    Level: options.level,
+    Runs: options.runCount.toLocaleString()
+  };
+
+  const descriptionList = document.createElement('dl');
+  descriptionList.classList.add('header-descriptions');
+  Object.entries(facts).forEach(([term, value]) => {
+      const dt = document.createElement('dt');
+      const dd = document.createElement('dd');
+
+      dt.textContent = term;
+      dd.textContent = value;
+
+      descriptionList.append(dt, dd);
+
+  });
+
+  resultHeader.append(descriptionList);
+
+  masterResultCard.append(resultHeader);
+
+  const innerGrid = document.createElement('div');
+  innerGrid.classList.add('result-card-grid');
+
+  innerGrid.append(...options.cards);
+  masterResultCard.appendChild(innerGrid);
+  return masterResultCard;
 }
 
 
@@ -87,7 +129,7 @@ function performSimulation() {
 function makeStatCard(statNames, statSheetType, id, label, format) {
   const cardStat = document.createElement('div');
   cardStat.id = id;
-  const cardTitle = document.createElement('h2'); 
+  const cardTitle = document.createElement('h3'); 
   cardTitle.textContent = label;
   cardStat.appendChild(cardTitle);
   statNames.forEach((stat) => { 
@@ -108,7 +150,6 @@ function assertFormattersComplete(typeNames, formats) {
           throw new Error("No entry for " + statistic);
         }
         if(typeof formats[statistic] !== 'function') {
-          console.log(typeof formats[statistic]);
           throw new Error(statistic + " is not a function");
         }
 
