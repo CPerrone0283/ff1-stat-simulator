@@ -23,6 +23,7 @@ body {
     color: white;
     font-family: "VT323", 'Times New Roman', Times, serif;
     font-size: 1.25rem;
+
 }
 
 input, button, select, textarea {
@@ -102,6 +103,28 @@ dl {
   display: flex;
 }
 
+
+input[name="class"] {
+  height: 16px;
+  width: 16px;
+
+}
+
+input[name="class"]:checked {
+  appearance: none;
+  background-image: url("./images/pointer.png");
+  background-repeat: no-repeat;
+
+
+}
+
+input[name="class"]:focus-visible {
+  outline: 2px solid var(--ff-silver);
+  outline-offset: 1px;
+
+}
+
+
 /* dd::after {
   content: ".";
 } */
@@ -110,8 +133,4 @@ dl {
   content: "▶ ";
   color: silver;
 } */
-
-
-/* input[name="class"]:checked + label::before { content: "▶ "; }
-input[name="class"]:not(:checked) + label::before { content: "  "; } */
 
