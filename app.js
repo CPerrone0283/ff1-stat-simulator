@@ -113,6 +113,13 @@ function makeResultCard(options) {
 
   resultHeader.append(descriptionList);
 
+  const spriteImage = document.createElement('img');
+  spriteImage.src = `images/classes/${options.job}.png`;
+  spriteImage.alt = "";
+  spriteImage.classList.add('class-sprite');
+
+  resultHeader.append(spriteImage);
+
   masterResultCard.append(resultHeader);
 
   const innerGrid = document.createElement('div');
