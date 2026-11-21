@@ -10,19 +10,15 @@ DB_FILE = DB_DIR / "ff_simulator.db"
 Level = 50
 
 query = """
-    SELECT C.Name                      AS Name,
-           SUM(L.StrengthGuaranteed)     AS Strength,
-           SUM(L.AgilityGuaranteed)      AS Agility,
-           SUM(L.VitalityGuaranteed)     AS Vitality,
-           SUM(L.IntelligenceGuaranteed) AS Intelligence,
-           SUM(L.LuckGuaranteed)         AS Luck
-    FROM LevelUp L
-    JOIN Class C ON C.ID = L.ClassID
-    WHERE L.Level >= 2
-      AND L.Level <= ?
-    GROUP BY C.ID, C.Name
-    ORDER BY C.ID
-"""
+            SELECT C.Name AS Name, SUM(L.StrengthGuaranteed) AS Strength, SUM(L.AgilityGuaranteed) AS Agility,
+            SUM(L.VitalityGuaranteed) AS Vitality, SUM(L.IntelligenceGuaranteed) AS Intelligence, SUM(L.LuckGuaranteed) AS Luck
+            FROM LevelUp L
+            JOIN Class C ON C.ID = L.ClassID
+            WHERE L.Level >= 2
+            AND L.Level <= ?
+            GROUP BY C.ID, C.Name
+            ORDER BY C.ID
+        """
 
 
 
@@ -44,5 +40,6 @@ with closing(sqlite3.connect(DB_FILE)) as connection:
         Luck = row["Luck"]
         Name = row["Name"]
         GrandTotal = Strength + Agility + Vitality + Intelligence + Luck
-        print(Name, f" STR:", Strength, f" AGI:", Agility, f" VIT:", Vitality, f" INT:", Intelligence, f" LCK:", Luck, f"GRAND TOTAL:", GrandTotal)
+        #print(Name, " STR:", Strength, " AGI:", Agility, " VIT:", Vitality, " INT:", Intelligence, " LCK:", Luck, "GRAND TOTAL:", GrandTotal)
+        print(f"{Name}: STR: {Strength} AGI: {Agility} VIT: {Vitality} INT: {Intelligence} LCK: {Luck} GRAND TOTAL: {GrandTotal}")
 

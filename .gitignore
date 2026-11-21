@@ -19,3 +19,4 @@ node_modules/
 # for launch.json
 .claude/
 
+__pycache__
