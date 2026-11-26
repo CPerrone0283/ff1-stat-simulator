@@ -5,19 +5,19 @@ PRAGMA foreign_keys = ON;
 
 -- Upgraded classes go in first: base classes point at them through UpgradesTo,
 -- and the foreign key requires the target row to exist.
-INSERT INTO Class (ID, Name, AltName, UpgradesTo) VALUES
-    (11, 'Knight',       NULL, NULL),
-    (12, 'Ninja',        NULL, NULL),
-    (13, 'Master',       NULL, NULL),
-    (14, 'Red Wizard',   NULL, NULL),
-    (15, 'White Wizard', NULL, NULL),
-    (16, 'Black Wizard', NULL, NULL),
-    (1,  'Fighter',      'Warrior', 11),
-    (2,  'Thief',        NULL,      12),
-    (3,  'Black Belt',   'Monk',    13),
-    (4,  'Red Mage',     NULL,      14),
-    (5,  'White Mage',   NULL,      15),
-    (6,  'Black Mage',   NULL,      16);
+INSERT INTO Class (ID, Name, AltName, JobKey, UpgradesTo) VALUES
+    (11, 'Knight',       NULL,      'knight',       NULL),
+    (12, 'Ninja',        NULL,      'ninja',        NULL),
+    (13, 'Master',       NULL,      'master',       NULL),
+    (14, 'Red Wizard',   NULL,      'redWizard',    NULL),
+    (15, 'White Wizard', NULL,      'whiteWizard',  NULL),
+    (16, 'Black Wizard', NULL,      'blackWizard',  NULL),
+    (1,  'Fighter',      'Warrior', 'fighter',      11),
+    (2,  'Thief',        NULL,      'thief',        12),
+    (3,  'Black Belt',   'Monk',    'blackBelt',    13),
+    (4,  'Red Mage',     NULL,      'redMage',      14),
+    (5,  'White Mage',   NULL,      'whiteMage',    15),
+    (6,  'Black Mage',   NULL,      'blackMage',    16);
 
 INSERT INTO Version (ID, Name, UsesCharges, MaxLevel, MaxHP, MaxStat) VALUES
     (1, 'NES', 1, 50, 999, 99);

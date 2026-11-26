@@ -12,6 +12,7 @@ CREATE TABLE Class (
     ID          INTEGER PRIMARY KEY,
     Name        TEXT    NOT NULL UNIQUE,
     AltName     TEXT,
+    JobKey      TEXT   NOT NULL UNIQUE,
     UpgradesTo  INTEGER REFERENCES Class (ID)
 ) STRICT;
 

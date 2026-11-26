@@ -1,6 +1,7 @@
 import sqlite3
 from pathlib import Path
 from contextlib import closing
+import json
 
 DB_DIR = Path(__file__).parent
 DB_FILE = DB_DIR / "ff_simulator.db"
@@ -11,7 +12,7 @@ def get_jobs(connection, version):
     jobs = {} 
 
     classQuery = """
-                SELECT Name, ID 
+                SELECT JobKey, ID 
                 FROM Class
                 WHERE UpgradesTo IS NOT NULL
                 ORDER BY ID
@@ -40,7 +41,7 @@ def get_jobs(connection, version):
     for row in classNames:
         #print(row["Name"]) #job name
         baseStats = connection.execute(baseStatsQuery, (version, row["ID"],)).fetchone()
-        jobs[row["Name"]] = {'base': {'str': baseStats["Strength"], 'agi': baseStats["Agility"], 
+        jobs[row["JobKey"]] = {'base': {'str': baseStats["Strength"], 'agi': baseStats["Agility"], 
                                     'int': baseStats["Intelligence"], 'vit': baseStats["Vitality"], 
                                     'luck': baseStats["Luck"], 
                                     'hp': baseStats["HP"] }}
@@ -56,8 +57,8 @@ def get_jobs(connection, version):
             growth['luck'].append(level["LuckGuaranteed"])
             strongHp.append(level["StrongHP"])
 
-        jobs[row["Name"]]["growth"]  = growth
-        jobs[row["Name"]]["strongHp"] = strongHp
+        jobs[row["JobKey"]]["growth"]  = growth
+        jobs[row["JobKey"]]["strongHp"] = strongHp
         #print(jobs[row["Name"]]["growth"])
 
 
@@ -68,9 +69,26 @@ if __name__ == "__main__":
     version = 1
     with closing(sqlite3.connect(DB_FILE)) as conn:
         jobs = get_jobs(conn, version)
+        #print(jobs)
+    
+    projectRoot = Path(__file__).resolve().parent.parent
+    dataFolder = projectRoot / "data"
+    jsJobs = (dataFolder/"classData.js").read_text(encoding="utf-8")
 
-    for name, job in jobs.items():
-        print(name, [len(values) for values in job["growth"].values()], len(job["strongHp"])) #makes sure there's 51 values?
-        count = sum(1 for x in job["strongHp"] if x > 0)
-        print(name, "Strong Hp:", count)
+    startSlice = jsJobs.find("{")
+    endSlice = jsJobs.rfind("}")
+
+    newJsonObject = slice(startSlice, endSlice + 1)
+
+
+    newDictionary = json.loads(jsJobs[newJsonObject])
+
+    print(newDictionary == jobs)
+
+
+
+    #for name, job in jobs.items():
+        #print(name, [len(values) for values in job["growth"].values()], len(job["strongHp"])) #makes sure there's 51 values?
+      #  count = sum(1 for x in job["strongHp"] if x > 0)
+       # print(name, "Strong Hp:", count)
 
